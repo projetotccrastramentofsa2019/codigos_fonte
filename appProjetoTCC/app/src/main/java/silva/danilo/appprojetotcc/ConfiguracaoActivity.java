@@ -1,0 +1,17 @@
+package silva.danilo.appprojetotcc;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import silva.danilo.appprojetotcc.activityHelper.RotinasSidenav;
+
+public class ConfiguracaoActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_configuracao);
+
+        RotinasSidenav.carregarSidenav(this);
+    }
+}

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">appProjetoTCC</string>
+    <string name="title_activity_local_veiculo">Map</string>
+    <string name="sidenav_dados_cadastrados">Dados Cadastrados</string>
+    <string name="sidenav_historico">Histórico</string>
+    <string name="sidenav_veiculos_do_usuario">Meus Veículos</string>
+    <string name="sidenav_fale_conosco">Fale conosco</string>
+    <string name="sidenav_configuracoes">Configurações</string>
+    <string name="sidenav_sair">Sair</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>

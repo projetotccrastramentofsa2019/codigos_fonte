@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:id="@+id/grp1" android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/sidenav_item_veiculos"
+            android:title="@string/sidenav_veiculos_do_usuario" />
+        <item
+            android:id="@+id/sidenav_item_dados_usuario"
+            android:title="@string/sidenav_dados_cadastrados"/>
+
+        <item
+            android:id="@+id/sidenav_item_contato"
+            android:title="@string/sidenav_fale_conosco" />
+    </group>
+
+    <group android:id="@+id/grp2" android:checkableBehavior="single">
+<!--        <item-->
+<!--            android:id="@+id/sidenav_item_config"-->
+<!--            android:title="@string/sidenav_configuracoes" />-->
+        <item
+            android:id="@+id/sidenav_item_sair"
+            android:title="@string/sidenav_sair" />
+
+    </group>
+
+</menu>
