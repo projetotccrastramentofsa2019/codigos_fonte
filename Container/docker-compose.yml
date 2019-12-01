@@ -1,0 +1,69 @@
+version: '3'
+services:
+  docker-mysql:
+    container_name: docker-mysql
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=projetoTCCRest
+      - MYSQL_USER=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./volumeMysql:/var/lib/mysql
+    networks:
+      - production-network
+  nginx:
+    build:
+      dockerfile: ./nginx.dockerfile
+      context: .
+    image: danilodepaulosilva/nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    networks:
+      - production-network
+    depends_on:
+      - autenticacao
+  autenticacao:
+    build:
+      dockerfile: ./autenticacao.dockerfile
+      context: .
+    container_name: autenticacao
+    ports:
+      - "8080"
+    links:
+      - docker-mysql
+    networks:
+      - production-network
+    depends_on:
+      - docker-mysql
+  app-rest:
+    build:
+      dockerfile: ./app-rest.dockerfile
+      context: .
+    container_name: app-rest
+    ports:
+      - "8080"
+    links:
+      - docker-mysql
+    networks:
+      - production-network
+    depends_on:
+      - docker-mysql
+  localizacao-veiculo-rest:
+    build:
+      dockerfile: ./localizacao-veiculo-rest.dockerfile
+      context: .
+    container_name: localizacao-veiculo-rest
+    ports:
+      - "8080"
+    links:
+      - docker-mysql
+    networks:
+      - production-network
+    depends_on:
+      - docker-mysql
+networks:
+  production-network:
+    driver: bridge
